@@ -6,6 +6,7 @@ namespace BankAppOct19
     {
         static void Main(string[] args)
         {
+            //Adding comment for git
             //object = instance of a class
             var account = new Account
             {
