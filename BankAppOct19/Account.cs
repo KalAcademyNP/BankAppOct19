@@ -19,26 +19,24 @@ namespace BankAppOct19
     /// </summary>
     class Account
     {
-        private static int lastAccountNumber = 0;
 
         #region Properties
         /// <summary>
         /// Name of the account
         /// </summary>
         public string AccountName { get; set; }
-        public decimal Balance { get; private set; }
+        public decimal Balance { get;  set; }
         public string EmailAddress { get; set; }
         public TypeOfAccount AccountType { get; set; }
 
-        public int AccountNumber { get; private set; }
-        public DateTime CreatedDate { get; private set; }
+        public int AccountNumber { get;  set; }
+        public DateTime CreatedDate { get;  set; }
         #endregion
 
         #region Constructor
 
         public Account()
         {
-            AccountNumber = ++lastAccountNumber;
             CreatedDate = DateTime.Now;
         }
 

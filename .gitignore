@@ -5,3 +5,5 @@
 /.vs/BankAppOct19
 /BankAppOct19/bin/Debug/netcoreapp2.1
 /BankAppOct19/obj
+/BankUI/bin/Debug/netcoreapp2.2
+/BankUI/obj

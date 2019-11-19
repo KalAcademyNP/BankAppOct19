@@ -22,6 +22,7 @@ namespace BankAppOct19
         public TypeOfTransaction TransactionType { get; set; }
 
         public int AccountNumber { get; set; }
+        public virtual Account Account { get; set; }
 
         public decimal Balance { get; set; }
     }

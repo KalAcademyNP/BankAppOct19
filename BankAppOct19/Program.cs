@@ -23,19 +23,34 @@ namespace BankAppOct19
                         Console.WriteLine("Thank you for visiting the bank!");
                         return;
                     case "1":
-                        Console.Write("Email Address: ");
-                        var email = Console.ReadLine();
-                        Console.Write("Account name: ");
-                        var accountName = Console.ReadLine();
-                        Console.WriteLine("Account Type: ");
-                        var accountTypes = Enum.GetNames(typeof(TypeOfAccount));
-                        for(var i = 0; i < accountTypes.Length; i++)
+                        try
                         {
-                            Console.WriteLine($"{i}. {accountTypes[i]}");
+                            Console.Write("Email Address: ");
+                            var email = Console.ReadLine();
+                            Console.Write("Account name: ");
+                            var accountName = Console.ReadLine();
+                            Console.WriteLine("Account Type: ");
+                            var accountTypes = Enum.GetNames(typeof(TypeOfAccount));
+                            for (var i = 0; i < accountTypes.Length; i++)
+                            {
+                                Console.WriteLine($"{i}. {accountTypes[i]}");
+                            }
+                            var accountType = Enum.Parse<TypeOfAccount>(Console.ReadLine());
+                            var account = Bank.CreateAccount(accountName, email, accountType);
+                            Console.WriteLine($"AN: {account.AccountNumber}, Account Name: {account.AccountName}, EA: {account.EmailAddress}, AT: {account.AccountType}, B: {account.Balance:C}, CD: {account.CreatedDate}");
                         }
-                        var accountType = Enum.Parse<TypeOfAccount>(Console.ReadLine());
-                        var account = Bank.CreateAccount(accountName, email, accountType);
-                        Console.WriteLine($"AN: {account.AccountNumber}, Account Name: {account.AccountName}, EA: {account.EmailAddress}, AT: {account.AccountType}, B: {account.Balance:C}, CD: {account.CreatedDate}");
+                        catch (ArgumentNullException ax)
+                        {
+                            Console.WriteLine($"Error! {ax.Message}");
+                        }
+                        catch (ArgumentException)
+                        {
+                            Console.WriteLine("Account type is invalid! Please choose a valid account type");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Sorry something went wrong! Please try again!");
+                        }
                         break;
                     case "2":
                         PrintAllAccounts();
