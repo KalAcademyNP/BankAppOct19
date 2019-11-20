@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BankAppOct19
 {
-    static class Bank
+    public static class Bank
     {
         private static BankContext db = new BankContext();
         public static  Account CreateAccount(string accountName, string emailAddress, TypeOfAccount accountType= TypeOfAccount.Checking, 
